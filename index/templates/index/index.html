@@ -10,23 +10,15 @@
 </head>
 
 <body>
+    <button id='start'>
+        Start
+    </button>
+    <button id='stop'>
+        Stop
+    </button>
+    <video id='output' muted=true style="width: 100%; height: 100%;"></video>
     <script>
         const URL = 'get_video';
-        let div = document.createElement('div');
-        div.id = 'messages';
-        let start = document.createElement('button');
-        start.id = 'start';
-        start.innerHTML = 'Start';
-        let stop = document.createElement('button');
-        let output = document.createElement('video')
-        output.id = 'output'
-        output.muted = true;
-        stop.id = 'stop';
-        stop.innerHTML = 'Stop';
-        document.body.appendChild(div);
-        document.body.appendChild(start);
-        document.body.appendChild(stop);
-        document.body.appendChild(output);
         navigator.mediaDevices.getUserMedia({ audio: true, video: true })
             .then(stream => {
                 const mediaRecorder = new MediaRecorder(stream);
