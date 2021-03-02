@@ -7,65 +7,21 @@
     <meta charset='utf-8'>
     <script src="{%static 'js/index.js' %}">
     </script>
+    <link rel="stylesheet" href="{%static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button id='start'>
-        Start
-    </button>
-    <button id='stop'>
-        Stop
-    </button>
-    <video id='output' muted=true style="width: 100%; height: 100%;"></video>
-    <script>
-        const URL = 'get_video';
-        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-            .then(stream => {
-                const mediaRecorder = new MediaRecorder(stream);
 
-                document.querySelector('#start').addEventListener('click', function () {
-                    mediaRecorder.start();
-                    output.srcObject=stream
-                    output.play()
-                });
-                let audioChunks = [];
-                mediaRecorder.addEventListener("dataavailable", function (event) {
-                    audioChunks.push(event.data);
-                });
-
-                document.querySelector('#stop').addEventListener('click', function () {
-                    mediaRecorder.stop();
-                    output.pause()
-                });
-
-                mediaRecorder.addEventListener("stop", function () {
-                    const audioBlob = new Blob(audioChunks, {
-                        type: "video/webm"
-                    });
-
-                    let fd = new FormData();
-                    fd.append('voice', audioBlob);
-                    sendVoice(fd);
-                    audioChunks = [];
-                });
-            });
-
-        async function sendVoice(form) {
-            let promise = await fetch(URL, {
-                method: 'POST',
-                body: form
-            });
-            if (promise.ok) {
-                let response = await promise.json();
-                console.log(response.data);
-                audio.src = response.data;
-                audio.controls = true;
-                audio.autoplay = true;
-                document.querySelector('#messages').appendChild(audio);
-            }
-        }
-    </script>
-    сука
+    <div class="video_div">
+        <video class="video" id="output" src="/videos/temp1.webm" autoplay></video>
+    </div>
+    <div class="overlay">
+        <div class="timer">05:00</div>
+        <div class="question">Есть ли вероятность, что ты станешь балериной?</div>
+    </div>
 </body>
 
 </html>
