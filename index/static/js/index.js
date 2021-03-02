@@ -29,7 +29,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             const mediaRecorder = new MediaRecorder(stream);
             start_recording(mediaRecorder, output, stream);
 
-            setTimeout(stop_recording, 120000, mediaRecorder, output);
+            setTimeout(stop_recording, 143000, mediaRecorder, output);
 
             change_label('Приготовьтесь');
             start_timer(3);
@@ -200,7 +200,6 @@ function start_recording(recorder, output, stream) {
 
 function stop_recording(recorder, output, stream) {
     recorder.stop();
-    output.pause()
 }
 
 function change_label(text) {
@@ -237,16 +236,16 @@ function start_timer(time) {
 }
 
 async function sendVoice(form) {
+    document.getElementById('_timer').classList.add('hidden')
+    document.getElementById('spinner').classList.remove('hidden')
+    document.getElementById('spinner').classList.add('windows8')
+    document.getElementById('_question').innerHTML = 'Отправка на сервер'
     let promise = await fetch(URL, {
         method: 'POST',
         body: form
     });
     if (promise.ok) {
-        let response = await promise.json();
-        console.log(response.data);
-        audio.src = response.data;
-        audio.controls = true;
-        audio.autoplay = true;
-        document.querySelector('#messages').appendChild(audio);
+        document.getElementById('spinner').classList.add('hidden')
+        document.getElementById('_question').innerHTML = 'Успешно отправлено'
     }
 }
