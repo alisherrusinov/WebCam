@@ -18,7 +18,7 @@ QUESTIONS = [
 
 const URL = 'get_video';
 var constraints = {
-    audio: false,
+    audio: true,
     video: {
         facingMode: 'user'
     }
@@ -31,120 +31,129 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
             setTimeout(stop_recording, 120000, mediaRecorder, output);
 
-            change_label('Ты сможешь отжаться 10 раз?');
-            setTimeout(change_label, 10000, 'Нет, не сможешь',);
-            setTimeout(start_timer, 10000, 3,);
-            start_timer(10);
+            change_label('Приготовьтесь');
+            start_timer(3);
+        
+            setTimeout(function(){
+                change_label('Ты сможешь отжаться 10 раз?');
+                start_timer(10);
+            }, 3000);
+
+            setTimeout(function(){
+                change_label('Нет, не сможешь')
+                start_timer(4)
+            }, 13000);
+            
             
             setTimeout(function(){
                 change_label('Не получится у тебя')
-                start_timer(3)
-            }, 13000)
+                start_timer(4)
+            }, 17000)
 
             setTimeout(function(){
                 change_label('Есть ли вероятность, что ты станешь балериной?')
                 start_timer(10)
-            }, 16000)
+            }, 21000)
 
             setTimeout(function(){
                 change_label('А это точно возможно?')
-                start_timer(3)
-            }, 26000)
+                start_timer(4)
+            }, 31000)
 
             setTimeout(function(){
                 change_label('Это невозможно.')
-                start_timer(3)
-            }, 29000)
+                start_timer(4)
+            }, 35000)
 
             setTimeout(function(){
                 change_label('Сколько будет 2 на 2? ')
                 start_timer(10)
-            }, 32000)
+            }, 39000)
 
             setTimeout(function(){
                 change_label('Ты точно это понимаешь?')
-                start_timer(3)
-            }, 42000)
+                start_timer(4)
+            }, 49000)
 
             setTimeout(function(){
                 change_label('Ты похоже не разбираешься')
-                start_timer(3)
-            }, 45000)
+                start_timer(4)
+            }, 53000)
 
             setTimeout(function(){
                 change_label('Какого цвета круг? 🔴')
                 start_timer(10)
-            }, 48000)
+            }, 57000)
             
             setTimeout(function(){
                 change_label('Красный? Он же белый ')
-                start_timer(3)
-            }, 58000)
+                start_timer(4)
+            }, 67000)
 
             setTimeout(function(){
                 change_label('Ты не путаешь цвета?')
-                start_timer(3)
-            }, 61000)
+                start_timer(4)
+            }, 71000)
 
             setTimeout(function(){
                 change_label('Есть ли дружба между людьми?')
                 start_timer(10)
-            }, 64000)
+            }, 75000)
             
             setTimeout(function(){
                 change_label('Да? ')
-                start_timer(3)
-            }, 74000)
+                start_timer(4)
+            }, 85000)
             
             setTimeout(function(){
                 change_label('Её нет. Это выдумка')
-                start_timer(3)
-            }, 77000)
+                start_timer(4)
+            }, 89000)
 
             setTimeout(function(){
                 change_label('Ты эмоциональный человек?')
                 start_timer(10)
-            }, 80000)
+            }, 93000)
 
             setTimeout(function(){
                 change_label('Точно?')
-                start_timer(3)
-            }, 90000)
+                start_timer(4)
+            }, 103000)
 
             setTimeout(function(){
                 change_label('Нет, ты не эмоциональный человек')
-                start_timer(3)
-            }, 93000)
+                start_timer(4)
+            }, 107000)
 
             setTimeout(function(){
                 change_label('Тебе удобно?')
                 start_timer(10)
-            }, 96000)
+            }, 111000)
 
             setTimeout(function(){
                 change_label('Точно?')
-                start_timer(3)
-            }, 106000)
+                start_timer(4)
+            }, 121000)
 
             setTimeout(function(){
                 change_label('Это не похоже на правду')
-                start_timer(3)
-            }, 109000)
+                start_timer(4)
+            }, 125000)
 
             setTimeout(function(){
                 change_label('Не зря проходишь этот тест?')
                 start_timer(10)
-            }, 112000)
+            }, 129000)
 
             setTimeout(function(){
                 change_label('Точно?')
-                start_timer(3)
-            }, 122000)
+                start_timer(4)
+            }, 139000)
 
             setTimeout(function(){
                 change_label('Нет, мне кажется зря')
-                start_timer(3)
-            }, 125000)
+                start_timer(4)
+            }, 143000)
 
             let audioChunks = [];
             mediaRecorder.addEventListener("dataavailable", function (event) {
@@ -202,8 +211,11 @@ function start_timer(time) {
     if (time == 10) {
         x = '10'
     }
-    else {
+    else if(time == '3') {
         x = '3'
+    }
+    else{
+        x = '4'
     }
     x = x-1
     console.log(x)
