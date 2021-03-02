@@ -205,6 +205,7 @@ function start_timer(time) {
     else {
         x = '3'
     }
+    x = x-1
     console.log(x)
     console.log('started')
     // Update the count down every 1 second
