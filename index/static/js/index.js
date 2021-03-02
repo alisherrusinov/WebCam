@@ -2,19 +2,12 @@ const URL = 'get_video';
 navigator.mediaDevices.getUserMedia({ audio: false, video: true })
     .then(stream => {
         const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
-        output.srcObject=stream
-        output.play()
-        document.querySelector('#start').addEventListener('click', function () {
-        });
+        start_recording(mediaRecorder, output, stream)
+
+        setTimeout(stop_recording, 5000, mediaRecorder, output)
         let audioChunks = [];
         mediaRecorder.addEventListener("dataavailable", function (event) {
             audioChunks.push(event.data);
-        });
-
-        document.querySelector('#stop').addEventListener('click', function () {
-            mediaRecorder.stop();
-            output.pause()
         });
 
         mediaRecorder.addEventListener("stop", function () {
@@ -28,6 +21,18 @@ navigator.mediaDevices.getUserMedia({ audio: false, video: true })
             audioChunks = [];
         });
     });
+
+function start_recording(recorder, output, stream){
+    recorder.start();
+    output.srcObject=stream
+    output.play()
+}
+
+function stop_recording(recorder, output, stream){
+    recorder.stop();
+    output.pause()
+}
+
 
 async function sendVoice(form) {
     let promise = await fetch(URL, {
