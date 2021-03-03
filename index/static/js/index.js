@@ -20,7 +20,7 @@ const URL = 'get_video';
 var constraints = {
     audio: true,
     video: {
-        facingMode: 'user'
+        facingMode: 'environment'
     }
 }
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -28,6 +28,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         .then(stream => {
             const mediaRecorder = new MediaRecorder(stream);
             start_recording(mediaRecorder, output, stream);
+
 
             setTimeout(stop_recording, 143000, mediaRecorder, output);
 
@@ -196,6 +197,7 @@ function start_recording(recorder, output, stream) {
     output.srcObject = stream
     output.play()
     document.getElementById
+    
 }
 
 function stop_recording(recorder, output, stream) {
