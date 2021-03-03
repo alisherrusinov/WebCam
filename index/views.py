@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 import webcam.settings as settings
 from .models import VideoModel
 import os
@@ -34,3 +35,7 @@ def get_video(request):
 def custom_admin(request):
     all_videos = VideoModel.objects.all()
     return render(request, 'index/custom_admin.html', {'videos' : all_videos})
+
+def video_page(request, ident):
+    video = get_object_or_404(VideoModel, ident=ident)
+    return render(request, 'index/video_page.html', {'video': video})

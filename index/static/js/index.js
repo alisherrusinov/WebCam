@@ -33,7 +33,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
             change_label('Приготовьтесь');
             start_timer(3);
-        
+            
             setTimeout(function(){
                 change_label('Ты сможешь отжаться 10 раз?');
                 start_timer(10);
