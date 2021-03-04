@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('social_django.urls')),
     path('', include('index.urls')),
 ]
 urlpatterns+=static(settings.VIDEO_URL, document_root=settings.VIDE0_DIR)
