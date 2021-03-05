@@ -202,6 +202,7 @@ function start_recording(recorder, output, stream) {
 
 function stop_recording(recorder, output, stream) {
     recorder.stop();
+    window.location.replace('finish')
 }
 
 function change_label(text) {
