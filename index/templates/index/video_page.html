@@ -1,66 +1,62 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeroAspect</title>
-    <script src="{%static 'js/video_page.js'%}"></script>
-    <link rel="stylesheet" href="{%static 'css/video_page.css'%}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/video_player.css' %}">
+  
+  <title>Video</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
-    <video id='main' autoplay src="/videos/{{video.file_name}}">
-        <!-- <source  type='video/webm'> -->
-    </video>
-    <!-- QUESTIONS = [
-    'Ты сможешь отжаться 10 раз?',
-    'Нет, не сможешь',
-    'Не получится у тебя',
-    'Есть ли вероятность, что ты станешь балериной?',
-    'А это точно возможно?',
-    'Это невозможно.',
-    'Сколько будет 2 на 2? ',
-    'Ты точно это понимаешь?',
-    'Ты похоже не разбираешься',
-    'Какого цвета круг? 🔴',
-    'Красный? Он же белый ',
-    'Ты не путаешь цвета?',
-    'Есть ли дружба между людьми?',
-    'Да? ',
-    'Её нет. Это выдумка'
-] -->
-<div class="buttons">
-    <div>
-        <button class="control-buttons" id='play' onclick="play()">Play</button>
-        <button class="control-buttons" id='stop' onclick="stop()">Stop</button>
+  <div class="container">
+    <div class="video" data-links='[["Воля", 3, 13], ["1", 13, 17], ["2", 17, 21]]'>
+      <video src="videos/temp18.mp4"></video>
     </div>
-    <ul>
-        <li onclick="rewind(3)">Ты сможешь отжаться 10 раз?</li>
-        <li onclick="rewind(13)">Нет, не сможешь</li>
-        <li onclick="rewind(17)">Не получится у тебя</li>
-        <li onclick="rewind(21)">Есть ли вероятность, что ты станешь балериной? </li>
-        <li onclick="rewind(31)">А это точно возможно? </li>
-        <li onclick="rewind(35)">Это невозможно. </li>
-        <li onclick="rewind(39)">Сколько будет 2 на 2?</li>
-        <li onclick="rewind(49)">Ты точно это понимаешь? </li>
-        <li onclick="rewind(53)">Ты похоже не разбираешься</li>
-        <li onclick="rewind(57)">Какого цвета круг? 🔴 </li>
-        <li onclick="rewind(67)">Красный? Он же белый  </li>
-        <li onclick="rewind(71)">Ты не путаешь цвета? </li>
-        <li onclick="rewind(75)">Есть ли дружба между людьми? </li>
-        <li onclick="rewind(85)"> Да? </li>
-        <li onclick="rewind(89)">Её нет. Это выдумка </li>
-        <li onclick="rewind(93)">Ты эмоциональный человек? </li>
-        <li onclick="rewind(103)">Точно? </li>
-        <li onclick="rewind(107)">Нет, ты не эмоциональный человек </li>
-        <li onclick="rewind(111)">Тебе удобно? </li>
-        <li onclick="rewind(121)">Точно? </li>
-        <li onclick="rewind(125)">Это не похоже на правду </li>
-        <li onclick="rewind(129)">Не зря проходишь этот тест? </li>
-        <li onclick="rewind(139)">Точно? </li>
-        <li onclick="rewind(142)">Нет, мне кажется зря </li>
-    </ul>
-</div>
+
+    <div class="buttons">
+      <div class="row">
+        <a class="butt">Хранитель</a>
+        <a class="butt">Технолог</a>
+        <a class="butt">Искатель</a>
+        <a class="butt">Генератор идей</a>
+      </div>
+
+      <div class="row">
+        <a class="butt">Дипломат</a>
+        <a class="butt">Предводитель</a>
+        <a class="butt">Сценарист</a>
+        <a class="butt">Тактик</a>
+      </div>
+      
+      <div class="row">
+        <a class="butt">Администратор</a>
+        <a class="butt">Аналитик</a>
+        <a class="butt">Позитивист</a>
+        <a class="butt">Драматург</a>
+      </div>
+      <div class="row">
+        <a class="butt">Практик</a>
+        <a class="butt">Деятель</a>
+        <a class="butt">Моралист</a>
+        <a class="butt ">Миротворец</a>
+      </div>
+    </div>
+    <div class="row foter">
+      <a class="butt left"><< Назад</a>
+      <a href="#">Профиль ВК</a>
+      <a class="butt right">Далее >></a>
+    </div>
+  </div>
+
+  <script src="{% static 'js/video_player.js' %}"></script>
 </body>
 </html>

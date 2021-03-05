@@ -15,15 +15,8 @@ a{
     padding-top: 50%;
 }
 .login {
-    background-color: #ECF1F5;
-    
     text-align: center;
-    padding-top: 7%;
-    padding-bottom: 7%;
-    border-radius: 7px;
-}
-.login a{
-    color: #3F709D;
+    font-size: 22px;
 }
 .login-wrapper{
     padding-top: 7%;

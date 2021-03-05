@@ -6,8 +6,16 @@ import webcam.settings as settings
 from .models import VideoModel
 import os
 # Create your views here.
+
 def index(request):
     return render(request, 'index/index.html')
+
+def record(request):
+    print(request.user.username)
+    return render(request, 'index/record.html')
+
+def finish(request):
+    return render(request, 'index/finish.html')
 
 @csrf_exempt
 def get_video(request):

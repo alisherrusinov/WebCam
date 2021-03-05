@@ -1,0 +1,112 @@
+.video {
+  position: relative;
+  padding-bottom: 100px;
+}
+.video .links {
+  display: block;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+.video video {
+  width: 100%;
+  height: 500px;
+  margin-bottom: -5px;
+  background-color: #000;
+}
+.video .progress {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 0%;
+  background-color: #6A2EEB;
+  z-index: 1;;
+}
+.video .links div:not(.progress) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  line-height: 100px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  overflow: hidden;
+  z-index: 3;
+  cursor: pointer;
+  text-align: center;
+
+  transition: background-color 0.2s;
+}
+.video .links div:not(.progress):hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры */
+  padding-top: 10px;
+}
+
+.row{
+  padding-top: 30px;
+}
+
+#main{
+  min-width: 50%;
+  padding-left: 25%;
+}
+.buttons{
+  text-align: center;
+}
+.butt{
+  background-color: #E9E9E9;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  border-radius: 8px;
+
+}
+
+.butt:hover{
+  background-color: #E0E0E0;
+}
+.butt:active{
+  background-color: #5A1CDE;
+}
+
+.foter{
+  text-align: center;
+  margin:0 auto;
+  padding-top: 50px;
+}
+
+.right{
+
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+@media screen and (max-device-width: 622px) {
+  .row{
+    padding-top: 60px;
+  }
+ }
