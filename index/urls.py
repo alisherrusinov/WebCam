@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import record, get_video, custom_admin, video_page, index, finish
+from .views import record, get_video, custom_admin, video_page, index, finish, set_status
 
 urlpatterns = [
     path('', index),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('finish', finish),
     path('all_videos', custom_admin),
     path('video_page/<int:ident>', video_page),
+    path('video_page/<int:ident>/set_status', set_status)
 ]

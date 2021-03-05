@@ -92,8 +92,20 @@ function initVideo(video) {
 
 init();
 
-function send_status(text){
+async function send_status(text){
+  URL = String(ID)+'/set_status'
   console.log(text.text)
   console.log(ID)
   console.log(user)
+  let fd = new FormData();
+  fd.append('status', text.text);
+  fd.append('ident', ID);
+  let promise = await fetch(URL, {
+    method: 'post',
+    body: fd
+});
+if (promise.ok) {
+    console.log('zbs')
+    document.getElementById('status').innerHTML = text.text
+}
 }

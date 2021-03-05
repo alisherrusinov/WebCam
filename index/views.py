@@ -11,7 +11,6 @@ def index(request):
     return render(request, 'index/index.html')
 
 def record(request):
-    print(request.user.username)
     return render(request, 'index/record.html')
 
 def finish(request):
@@ -33,18 +32,22 @@ def get_video(request):
         with open(videos_path, 'wb+') as destination:
             for chunk in request.FILES['voice'].chunks():
                 destination.write(chunk)
-
-        video = VideoModel(ident=id, file_name=filename)
+        username = request.user.username
+        video = VideoModel(ident=id, file_name=filename, username=username)
         video.save()
 
         return HttpResponse('OK')
 
 @csrf_exempt
-def set_status(request, status, ident):
-    model = VideoModel.objects.get(ident=ident)
-    model.status = status
-    model.save(update_fields=['status'])
-    return HttpResponse('OK')
+def set_status(request,ident):
+    if(request.method == 'POST'):
+        print(request.POST)
+        status, ident = request.POST.get('status'), request.POST.get('ident')
+        print(ident)
+        model = VideoModel.objects.get(ident=ident)
+        model.status = status
+        model.save(update_fields=['status'])
+        return HttpResponse('OK')
 
 def custom_admin(request):
     all_videos = VideoModel.objects.all()

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/video_player.css' %}">
+  <script src="{% static 'js/video_player.js' %}"></script>
   
   <title>Video</title>
   <style>
@@ -19,7 +20,8 @@
 <body>
   <div class="container">
     <div class="video" data-links='[["Воля", 3, 13], ["1", 13, 17], ["2", 17, 21]]'>
-      <video src="videos/temp18.mp4"></video>
+      <video src="/videos/{{video.file_name}}"></video>
+      
     </div>
 
     <div class="buttons">
@@ -49,11 +51,14 @@
         <a class="butt" onclick="send_status(this)">Моралист</a>
         <a class="butt" onclick="send_status(this)">Миротворец</a>
       </div>
+      <div class="row">
+        Текущий статус:  <span id='status'>{{video.status}}</span>
+      </div>
     </div>
     <div class="row foter">
-      <a class="butt left"><< Назад</a>
-      <a href="#">Профиль ВК</a>
-      <a class="butt right">Далее >></a>
+      <a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
+      <a href="http://vk.com/{{video.username]}" target="_blank">Профиль ВК</a>
+      <a class="butt right" href={{video.ident|add:1}}>Далее >></a>
     </div>
   </div>
 
@@ -63,6 +68,5 @@
   <script>
     let user = "{{ user.get_username }}"
   </script>
-  <script src="{% static 'js/video_player.js' %}"></script>
 </body>
 </html>
