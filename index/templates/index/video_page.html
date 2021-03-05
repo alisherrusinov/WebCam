@@ -24,30 +24,30 @@
 
     <div class="buttons">
       <div class="row">
-        <a class="butt">Хранитель</a>
-        <a class="butt">Технолог</a>
-        <a class="butt">Искатель</a>
-        <a class="butt">Генератор идей</a>
+        <a class="butt" onclick="send_status(this)">Хранитель</a>
+        <a class="butt" onclick="send_status(this)">Технолог</a>
+        <a class="butt" onclick="send_status(this)">Искатель</a>
+        <a class="butt" onclick="send_status(this)">Генератор идей</a>
       </div>
 
       <div class="row">
-        <a class="butt">Дипломат</a>
-        <a class="butt">Предводитель</a>
-        <a class="butt">Сценарист</a>
-        <a class="butt">Тактик</a>
+        <a class="butt" onclick="send_status(this)">Дипломат</a>
+        <a class="butt" onclick="send_status(this)">Предводитель</a>
+        <a class="butt" onclick="send_status(this)">Сценарист</a>
+        <a class="butt" onclick="send_status(this)">Тактик</a>
       </div>
       
       <div class="row">
-        <a class="butt">Администратор</a>
-        <a class="butt">Аналитик</a>
-        <a class="butt">Позитивист</a>
-        <a class="butt">Драматург</a>
+        <a class="butt" onclick="send_status(this)">Администратор</a>
+        <a class="butt" onclick="send_status(this)">Аналитик</a>
+        <a class="butt" onclick="send_status(this)">Позитивист</a>
+        <a class="butt" onclick="send_status(this)">Драматург</a>
       </div>
       <div class="row">
-        <a class="butt">Практик</a>
-        <a class="butt">Деятель</a>
-        <a class="butt">Моралист</a>
-        <a class="butt ">Миротворец</a>
+        <a class="butt" onclick="send_status(this)">Практик</a>
+        <a class="butt" onclick="send_status(this)">Деятель</a>
+        <a class="butt" onclick="send_status(this)">Моралист</a>
+        <a class="butt" onclick="send_status(this)">Миротворец</a>
       </div>
     </div>
     <div class="row foter">
@@ -57,6 +57,12 @@
     </div>
   </div>
 
+  <script>
+    let ID = {{video.ident}}
+  </script>
+  <script>
+    let user = {{ user.get_username }}
+  </script>
   <script src="{% static 'js/video_player.js' %}"></script>
 </body>
 </html>

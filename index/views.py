@@ -39,6 +39,12 @@ def get_video(request):
 
         return HttpResponse('OK')
 
+@csrf_exempt
+def set_status(request, status, ident):
+    model = VideoModel.objects.get(ident=ident)
+    model.status = status
+    model.save(update_fields=['status'])
+    return HttpResponse('OK')
 
 def custom_admin(request):
     all_videos = VideoModel.objects.all()
