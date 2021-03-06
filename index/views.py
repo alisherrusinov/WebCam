@@ -32,6 +32,8 @@ def get_video(request):
         with open(videos_path, 'wb+') as destination:
             for chunk in request.FILES['voice'].chunks():
                 destination.write(chunk)
+        os.popen(f'ffmpeg -i {videos_path} {directory}/temp{id}.mp4')
+        filename = f'temp{id}.mp4'
         username = request.user.username
         video = VideoModel(ident=id, file_name=filename, username=username)
         video.save()

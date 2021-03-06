@@ -209,8 +209,8 @@ function change_label(text) {
 }
 
 function start_timer(time) {
-    if (time == 10) {
-        x = '10'
+    if (time == 2) {
+        x = '2'
     }
     else if(time == '3') {
         x = '3'
