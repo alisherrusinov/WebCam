@@ -57,7 +57,7 @@
     </div>
     <div class="row foter">
       <a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
-      <a href="http://vk.com/{{ video.username }}" target="_blank">Профиль ВК</a>
+      <a href="http://vk.com/{{ video.username }}" target="_blank">{{user.get_full_name}}</a>
       <a class="butt right" href={{video.ident|add:1}}>Далее >></a>
     </div>
   </div>
