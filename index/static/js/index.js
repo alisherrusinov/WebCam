@@ -30,7 +30,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             start_recording(mediaRecorder, output, stream);
 
 
-            setTimeout(stop_recording, 65000, mediaRecorder, output);
+            setTimeout(stop_recording, 68000, mediaRecorder, output);
 
             change_label('Приготовьтесь');
             start_timer(3);
@@ -202,7 +202,6 @@ function start_recording(recorder, output, stream) {
 
 function stop_recording(recorder, output, stream) {
     recorder.stop();
-    window.location.replace('finish')
 }
 
 function change_label(text) {
@@ -250,5 +249,6 @@ async function sendVoice(form) {
     if (promise.ok) {
         document.getElementById('spinner').classList.add('hidden')
         document.getElementById('_question').innerHTML = 'Успешно отправлено'
+        window.location.replace('finish')
     }
 }
