@@ -101,13 +101,13 @@ function setTime(time){
   video.play()
 }
 
-var video = document.getElementById('_video');
+let video = document.getElementById('_video');
 video.addEventListener("click", function (e) {
   let video = e.target;
   if (video.paused) {
-    videoPlayer.playVideo(video);
+    video.play();
   } else {
-    videoPlayer.pauseVideo(video);
+    video.pause();
   }
 }, false);
 
