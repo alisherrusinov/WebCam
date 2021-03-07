@@ -104,7 +104,7 @@ function setTime(time){
 let video = document.getElementById('_video');
 
 function video_onclick(e) {
-  let video = e.target;
+  let video = e;
   if (video.paused) {
     video.play();
   } else {
