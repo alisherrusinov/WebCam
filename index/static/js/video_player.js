@@ -102,14 +102,13 @@ function setTime(time){
 }
 
 let video = document.getElementById('_video');
-video.addEventListener("click", function (e) {
+
+function video_onclick(e) {
   let video = e.target;
   if (video.paused) {
     video.play();
   } else {
     video.pause();
-  }
-}, false);
 
 video.timeupdate = function () {
   let progress = this.currentTime / this.duration;
