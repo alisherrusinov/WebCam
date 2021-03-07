@@ -18,6 +18,7 @@
   background-color: #000;
 }
 .video .progress {
+
   position: absolute;
   bottom: 0;
   height: 100%;
@@ -31,7 +32,6 @@
   bottom: 0;
   left: 0;
   border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
   line-height: 100px;
   font-size: 10px;
   font-weight: bold;
