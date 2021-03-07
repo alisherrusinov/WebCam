@@ -11,7 +11,6 @@ import os
 def index(request):
     return render(request, 'index/index.html')
 
-@login_required
 def record(request):
     return render(request, 'index/record.html')
 

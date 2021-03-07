@@ -1,12 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+<!-- saved from url=(0046)https://dantex.pythonanywhere.com/video_page/2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link href="./Video_files/css2" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/video_player.css' %}">
+  <script src="{% static 'js/video_player.js' %}"></script>
   <title>Video</title>
   <style>
     .container {
@@ -17,9 +18,36 @@
 </head>
 <body>
   <div class="container">
-    <div class="video" data-links='[["⠀", 0, 3], ["Воля", 3, 4], ["1", 7, 2], ["2", 9, 2], ["Варианты", 11, 4],["1", 15, 2],["2", 17, 2],["Логика", 19, 4],["1", 23, 2],["2", 25, 2], ["Рац", 27, 4], ["1", 31, 2],["2", 33, 2],["Отношения", 35, 4],["1", 39, 2],["2", 41, 2], ["Эмоции", 43, 4],["1", 47, 2],["2", 49, 2],["Комфорт", 51, 4],["1", 55, 2],["2", 57, 2],["Прогнозы", 59, 4],["1", 63, 2],["2", 65, 2]]'>
-      <video src="/videos/{{video.file_name}}" id="_video"></video>
-    </div>
+    <div class="video" data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
+      <video src="/videos/{{video.file_name}}" id="_video" preload="metadata"></video>
+    <div class="links">
+    <div class="progress" id='progress'></div>
+    <div style="left: 0%; width: 4.41677%;"></div>
+    <div style="left: 4.41677%; width: 5.88902%;" onclick="setTime(3);">Воля</div>
+    <div style="left: 10.3058%; width: 2.94451%;" onclick="setTime(7);">1</div>
+    <div style="left: 13.2503%; width: 2.94451%;" onclick="setTime(9);">2</div>
+    <div style="left: 16.1948%; width: 5.88902%;" onclick="setTime(11);">Варианты</div>
+    <div style="left: 22.0838%; width: 2.94451%;" onclick="setTime(15);">1</div>
+    <div style="left: 25.0283%; width: 2.94451%;" onclick="setTime(17);">2</div>
+    <div style="left: 27.9729%; width: 5.88902%;" onclick="setTime(19);">Логика</div>
+    <div style="left: 33.8619%; width: 2.94451%;" onclick="setTime(23);">1</div>
+    <div style="left: 36.8064%; width: 2.94451%;" onclick="setTime(25);">2</div>
+    <div style="left: 39.7509%; width: 5.88902%;" onclick="setTime(27);">Рац</div>
+    <div style="left: 45.6399%; width: 2.94451%;" onclick="setTime(31);">1</div>
+    <div style="left: 48.5844%; width: 2.94451%;" onclick="setTime(33);">2</div>
+    <div style="left: 51.5289%; width: 5.88902%;" onclick="setTime(35);">Отношения</div>
+    <div style="left: 57.418%; width: 2.94451%;" onclick="setTime(39);">1</div>
+    <div style="left: 60.3625%; width: 2.94451%;" onclick="setTime(41);">2</div>
+    <div style="left: 63.307%; width: 5.88902%;" onclick="setTime(43);">Эмоции</div>
+    <div style="left: 69.196%; width: 2.94451%;" onclick="setTime(47);">1</div>
+    <div style="left: 72.1405%; width: 2.94451%;" onclick="setTime(49);">2</div>
+    <div style="left: 75.085%; width: 5.88902%;" onclick="setTime(55);">Комфорт</div>
+    <div style="left: 80.974%; width: 2.94451%;" onclick="setTime(57);">1</div>
+    <div style="left: 83.9186%; width: 2.94451%;" onclick="setTime(59);">2</div>
+    <div style="left: 86.8631%; width: 5.88902%;" onclick="setTime(63);">Прогнозы</div>
+    <div style="left: 92.7521%; width: 2.94451%;" onclick="setTime(65);">1</div>
+    <div style="left: 95.6966%; width: 2.94451%;" onclick="setTime(68);">2</div>
+    </div></div>
 
     <div class="buttons">
       <div class="row">
@@ -49,7 +77,7 @@
         <a class="butt" onclick="send_status(this)">Миротворец</a>
       </div>
       <div class="row">
-        Текущий статус:  <span id='status'>{{video.status}}</span>
+        Текущий статус:  <span id="status">Тактик</span>
       </div>
     </div>
     <div class="row foter">
@@ -65,6 +93,6 @@
   <script>
     let user = "{{ user.get_username }}"
   </script>
-  <script src="{% static 'js/video_player.js' %}"></script>
-</body>
-</html>
+
+
+</body></html>
