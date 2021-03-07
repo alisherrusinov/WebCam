@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 import webcam.settings as settings
@@ -10,6 +11,7 @@ import os
 def index(request):
     return render(request, 'index/index.html')
 
+@login_required
 def record(request):
     return render(request, 'index/record.html')
 
@@ -35,7 +37,8 @@ def get_video(request):
         os.popen(f'ffmpeg -i {videos_path} -strict -2 {directory}/temp{id}.mp4; rm {videos_path}')
         filename = f'temp{id}.mp4'
         username = request.user.username
-        video = VideoModel(ident=id, file_name=filename, username=username)
+        full_name = request.user.get_full_name()
+        video = VideoModel(ident=id, file_name=filename, username=username, full_name=full_name)
         video.save()
 
         return HttpResponse('OK')
