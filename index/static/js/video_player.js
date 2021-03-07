@@ -109,7 +109,8 @@ function video_onclick(e) {
     video.play();
   } else {
     video.pause();
-
+  }
+}
 video.timeupdate = function () {
   let progress = this.currentTime / this.duration;
   progress = document.getElementById('progress')
