@@ -37,6 +37,7 @@ def get_video(request):
         username = request.user.username
         video = VideoModel(ident=id, file_name=filename, username=username)
         video.save()
+        os.popen(f'rm {videos_path}')
 
         return HttpResponse('OK')
 
