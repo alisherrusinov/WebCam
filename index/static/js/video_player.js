@@ -90,9 +90,8 @@ function initVideo(video) {
   }
 }
 
-let video = document.getElementById('_video')
-video.addEventListener('canplaythrough', init());
-init();
+init()
+
 
 async function send_status(text){
   URL = String(ID)+'/set_status'
