@@ -97,6 +97,7 @@ function initVideo(video) {
 function setTime(time){
   console.log('azaza')
   var video = document.getElementById('_video');
+  video.pause();
   video.currentTime = time
   video.play()
 }
