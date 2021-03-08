@@ -113,7 +113,7 @@ function video_onclick(e) {
 
 setTimeout(function(){
   let video = document.getElementById('_video');
-video.timeupdate = function () {
+video.addEventListener('timeupdate', function () {
   let progress = this.currentTime / this.duration;
   console.log(progress)
   progress = document.getElementById('progress')
@@ -121,7 +121,7 @@ video.timeupdate = function () {
   if (progress >= 1) {
     videoPlayer.pauseVideo(this);
   }
-}
+}, false);
 }, 2000)
 
 async function send_status(text) {
