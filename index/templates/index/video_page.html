@@ -81,9 +81,19 @@
       </div>
     </div>
     <div class="row foter">
+      {% if video.ident == 1 %}
+      <a class="butt left"><< Назад</a>
+      {% else %}
       <a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
+      {% endif %}
       <a href="http://vk.com/{{ video.username }}" target="_blank">{{video.full_name}}</a>
+
+      {% if video.ident == max_videos %}
+      <a class="butt right" href='1'>Далее >></a>
+      {% else %}
       <a class="butt right" href={{video.ident|add:1}}>Далее >></a>
+      {% endif %}
+      
     </div>
   </div>
 

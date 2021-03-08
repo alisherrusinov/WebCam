@@ -55,7 +55,8 @@ def set_status(request,ident):
 
 def custom_admin(request):
     all_videos = VideoModel.objects.all()
-    return render(request, 'index/custom_admin.html', {'videos' : all_videos})
+    max_video = len(all_videos)
+    return render(request, 'index/custom_admin.html', {'videos' : all_videos, 'max_videos':max_video})
 
 def video_page(request, ident):
     video = get_object_or_404(VideoModel, ident=ident)
