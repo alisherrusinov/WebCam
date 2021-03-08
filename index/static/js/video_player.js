@@ -116,10 +116,10 @@ setTimeout(function(){
 video.addEventListener('timeupdate', function () {
   let progress = this.currentTime / this.duration;
   console.log(progress)
-  progress = document.getElementById('progress')
-  progress.style.width = (progress * 100) + "%";
+  progress_el = document.getElementById('progress')
+  progress_el.style.width = (progress * 100) + "%";
   if (progress >= 1) {
-    videoPlayer.pauseVideo(this);
+    video.pause();
   }
 }, false);
 }, 2000)
