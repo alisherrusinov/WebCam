@@ -115,6 +115,7 @@ setTimeout(function(){
   let video = document.getElementById('_video');
 video.timeupdate = function () {
   let progress = this.currentTime / this.duration;
+  console.log(progress)
   progress = document.getElementById('progress')
   progress.style.width = (progress * 100) + "%";
   if (progress >= 1) {
