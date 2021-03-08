@@ -60,4 +60,6 @@ def custom_admin(request):
 
 def video_page(request, ident):
     video = get_object_or_404(VideoModel, ident=ident)
-    return render(request, 'index/video_page.html', {'video': video})
+    all_videos = VideoModel.objects.all()
+    max_video = len(all_videos)
+    return render(request, 'index/video_page.html', {'video': video, 'max_videos':max_video})
