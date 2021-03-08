@@ -101,8 +101,6 @@ function setTime(time){
   video.play()
 }
 
-let video = document.getElementById('_video');
-
 function video_onclick(e) {
   let video = e;
   if (video.paused) {
@@ -111,6 +109,9 @@ function video_onclick(e) {
     video.pause();
   }
 }
+
+setTimeout(function(){
+  let video = document.getElementById('_video');
 video.timeupdate = function () {
   let progress = this.currentTime / this.duration;
   progress = document.getElementById('progress')
@@ -119,7 +120,7 @@ video.timeupdate = function () {
     videoPlayer.pauseVideo(this);
   }
 }
-
+}, 2000)
 
 async function send_status(text) {
   URL = String(ID) + '/set_status'
