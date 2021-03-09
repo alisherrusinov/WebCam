@@ -42,7 +42,7 @@ let videoPlayer = {
 function init() {
   let videos = document.getElementsByClassName('video');
   for(let video of videos) {
-    video.getElementsByTagName("video")[0].addEventListener("loadeddata", function(){
+    video.getElementsByTagName("video")[0].addEventListener("oncanplay", function(){
       let videoElement = this;
       let linksWrap = document.createElement("div");
       linksWrap.className = "links";
