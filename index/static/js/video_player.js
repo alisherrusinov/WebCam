@@ -16,7 +16,7 @@ function video_onclick(e) {
 }
 
 
-let video = document.getElementById('_video');
+var video = document.getElementById('_video');
 video.addEventListener('timeupdate', function () {
   let progress = this.currentTime / this.duration;
   console.log(progress)
