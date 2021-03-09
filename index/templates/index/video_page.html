@@ -108,6 +108,7 @@
 function setTime(time) {
   console.log('Changed time')
   var video = document.getElementById('_video');
+  video.pause();
   video.currentTime = time
   video.play();
 }
