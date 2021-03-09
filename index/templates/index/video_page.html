@@ -21,7 +21,7 @@
 <body>
   <div class="container">
     <div class="video" data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
-      <video src="/videos/{{video.file_name}}" preload="metadata" controls onload="alert(1);"></video>
+      <video src="/videos/{{video.file_name}}" preload="metadata" controls loadedmetadata="alert(1);"></video>
     </div>
     <div class="buttons">
       <div class="row">
