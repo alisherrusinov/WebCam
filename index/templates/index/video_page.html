@@ -1,8 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <!-- saved from url=(0046)https://dantex.pythonanywhere.com/video_page/2 -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/video_player.css' %}">
@@ -14,64 +17,68 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <div class="video" data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
-      <video src="/videos/{{video.file_name}}"></video>
+    <div class="video"
+      data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
 
-    <div class="buttons">
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Хранитель</a>
-        <a class="butt" onclick="send_status(this)">Технолог</a>
-        <a class="butt" onclick="send_status(this)">Искатель</a>
-        <a class="butt" onclick="send_status(this)">Генератор идей</a>
-      </div>
+      <div class="buttons">
+        <div class="row">
+          <a class="butt" onclick="send_status(this)">Хранитель</a>
+          <a class="butt" onclick="send_status(this)">Технолог</a>
+          <a class="butt" onclick="send_status(this)">Искатель</a>
+          <a class="butt" onclick="send_status(this)">Генератор идей</a>
+        </div>
 
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Дипломат</a>
-        <a class="butt" onclick="send_status(this)">Предводитель</a>
-        <a class="butt" onclick="send_status(this)">Сценарист</a>
-        <a class="butt" onclick="send_status(this)">Тактик</a>
+        <div class="row">
+          <a class="butt" onclick="send_status(this)">Дипломат</a>
+          <a class="butt" onclick="send_status(this)">Предводитель</a>
+          <a class="butt" onclick="send_status(this)">Сценарист</a>
+          <a class="butt" onclick="send_status(this)">Тактик</a>
+        </div>
+
+        <div class="row">
+          <a class="butt" onclick="send_status(this)">Администратор</a>
+          <a class="butt" onclick="send_status(this)">Аналитик</a>
+          <a class="butt" onclick="send_status(this)">Позитивист</a>
+          <a class="butt" onclick="send_status(this)">Драматург</a>
+        </div>
+        <div class="row">
+          <a class="butt" onclick="send_status(this)">Практик</a>
+          <a class="butt" onclick="send_status(this)">Деятель</a>
+          <a class="butt" onclick="send_status(this)">Моралист</a>
+          <a class="butt" onclick="send_status(this)">Миротворец</a>
+        </div>
+        <div class="row">
+          Текущий статус: <span id="status">Тактик</span>
+        </div>
       </div>
-      
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Администратор</a>
-        <a class="butt" onclick="send_status(this)">Аналитик</a>
-        <a class="butt" onclick="send_status(this)">Позитивист</a>
-        <a class="butt" onclick="send_status(this)">Драматург</a>
-      </div>
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Практик</a>
-        <a class="butt" onclick="send_status(this)">Деятель</a>
-        <a class="butt" onclick="send_status(this)">Моралист</a>
-        <a class="butt" onclick="send_status(this)">Миротворец</a>
-      </div>
-      <div class="row">
-        Текущий статус:  <span id="status">Тактик</span>
+      <div class="row foter">
+        {% if video.ident == 1 %}
+        <a class="butt left">
+          << Назад</a>
+            {% else %}
+            <a class="butt left" href="{{video.ident|add:-1}}">
+              << Назад</a>
+                {% endif %}
+                <a href="http://vk.com/{{ video.username }}" target="_blank">{{video.full_name}}</a>
+                {% if video.ident == max_videos %}
+                <a class="butt right" href='1'>Далее >></a>
+                {% else %}
+                <a class="butt right" href={{video.ident|add:1}}>Далее >></a>
+                {% endif %}
+
       </div>
     </div>
-    <div class="row foter">
-      {% if video.ident == 1 %}
-      <a class="butt left"><< Назад</a>
-      {% else %}
-      <a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
-      {% endif %}
-      <a href="http://vk.com/{{ video.username }}" target="_blank">{{video.full_name}}</a>
-      {% if video.ident == max_videos %}
-      <a class="butt right" href='1'>Далее >></a>
-      {% else %}
-      <a class="butt right" href={{video.ident|add:1}}>Далее >></a>
-      {% endif %}
-      
-    </div>
-  </div>
+    <video src="/videos/{{video.file_name}}"></video>
+    <script>
+      let ID = "{{video.ident}}"
+    </script>
+    <script>
+      let user = "{{ user.get_username }}"
+    </script>
+    <script src="{%static 'js/video_player.js'%}"></script>
+</body>
 
-  <script>
-    let ID = "{{video.ident}}"
-  </script>
-  <script>
-    let user = "{{ user.get_username }}"
-  </script>
- <script src="{%static 'js/video_player.js'%}"></script>
-
-</body></html>
+</html>
