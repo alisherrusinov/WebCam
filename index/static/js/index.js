@@ -19,7 +19,9 @@ QUESTIONS = [
 const URL = 'get_video';
 var constraints = {
     audio: true,
-    video: true,
+    video: {
+        facingMode: 'user'
+    }
 }
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia(constraints)
