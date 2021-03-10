@@ -56,7 +56,7 @@ def set_status(request,ident):
 
 
 def custom_admin(request):
-    if(request.user.is_authenticated()):
+    if(request.user.is_authenticated):
         if(request.user.username in settings.ADMINS_LIST):
             all_videos = VideoModel.objects.all()
             max_video = len(all_videos)
@@ -67,7 +67,7 @@ def custom_admin(request):
         return HttpResponse(404)
 
 def video_page(request, ident):
-    if (request.user.is_authenticated()):
+    if (request.user.is_authenticated):
         if (request.user.username in settings.ADMINS_LIST):
             video = get_object_or_404(VideoModel, ident=ident)
             all_videos = VideoModel.objects.all()
