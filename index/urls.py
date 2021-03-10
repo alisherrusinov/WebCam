@@ -7,6 +7,6 @@ urlpatterns = [
     path('get_video', get_video),
     path('finish', finish),
     path('all_videos', custom_admin),
-    path('video_page/<int:ident>', video_page),
-    path('video_page/<int:ident>/set_status', set_status)
+    path('all_videos/<int:ident>', video_page),
+    path('all_videos/<int:ident>/set_status', set_status)
 ]
