@@ -54,6 +54,7 @@ def set_status(request,ident):
         model.save(update_fields=['status'])
         return HttpResponse('OK')
 
+
 def custom_admin(request):
     if(request.user.is_authenticated()):
         if(request.user.username in settings.ADMINS_LIST):
@@ -66,7 +67,13 @@ def custom_admin(request):
         return HttpResponse(404)
 
 def video_page(request, ident):
-    video = get_object_or_404(VideoModel, ident=ident)
-    all_videos = VideoModel.objects.all()
-    max_video = len(all_videos)
-    return render(request, 'index/video_page.html', {'video': video, 'max_videos':max_video})
+    if (request.user.is_authenticated()):
+        if (request.user.username in settings.ADMINS_LIST):
+            video = get_object_or_404(VideoModel, ident=ident)
+            all_videos = VideoModel.objects.all()
+            max_video = len(all_videos)
+            return render(request, 'index/video_page.html', {'video': video, 'max_videos': max_video})
+        else:
+            return HttpResponse(404)
+    else:
+        return HttpResponse(404)
