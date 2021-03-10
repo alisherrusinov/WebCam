@@ -1,80 +1,159 @@
 {% load static %}
 <!DOCTYPE html>
 <!-- saved from url=(0046)https://dantex.pythonanywhere.com/video_page/2 -->
-<html lang="en">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/video_player.css' %}">
+		<script src="{% static 'js' %}"></script>
+		<title>Video</title>
+		<style>
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="video" data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
+				<video src="/videos/{{video.file_name}}" id="_video" preload="auto" onclick="video_onclick(this)"></video>
+				<div class="links">
+					<div class="progress" id='progress'></div>
+					<div style="left: 0%; width: 4.41677%;"></div>
+					<div style="left: 4.41677%; width: 5.88902%;" onclick="setTime(3);">Воля</div>
+					<div style="left: 10.3058%; width: 2.94451%;" onclick="setTime(7);">1</div>
+					<div style="left: 13.2503%; width: 2.94451%;" onclick="setTime(9);">2</div>
+					<div style="left: 16.1948%; width: 5.88902%;" onclick="setTime(11);">Варианты</div>
+					<div style="left: 22.0838%; width: 2.94451%;" onclick="setTime(15);">1</div>
+					<div style="left: 25.0283%; width: 2.94451%;" onclick="setTime(17);">2</div>
+					<div style="left: 27.9729%; width: 5.88902%;" onclick="setTime(19);">Логика</div>
+					<div style="left: 33.8619%; width: 2.94451%;" onclick="setTime(23);">1</div>
+					<div style="left: 36.8064%; width: 2.94451%;" onclick="setTime(25);">2</div>
+					<div style="left: 39.7509%; width: 5.88902%;" onclick="setTime(27);">Рац</div>
+					<div style="left: 45.6399%; width: 2.94451%;" onclick="setTime(31);">1</div>
+					<div style="left: 48.5844%; width: 2.94451%;" onclick="setTime(33);">2</div>
+					<div style="left: 51.5289%; width: 5.88902%;" onclick="setTime(35);">Отношения</div>
+					<div style="left: 57.418%; width: 2.94451%;" onclick="setTime(39);">1</div>
+					<div style="left: 60.3625%; width: 2.94451%;" onclick="setTime(41);">2</div>
+					<div style="left: 63.307%; width: 5.88902%;" onclick="setTime(43);">Эмоции</div>
+					<div style="left: 69.196%; width: 2.94451%;" onclick="setTime(47);">1</div>
+					<div style="left: 72.1405%; width: 2.94451%;" onclick="setTime(49);">2</div>
+					<div style="left: 75.085%; width: 5.88902%;" onclick="setTime(51);">Комфорт</div>
+					<div style="left: 80.974%; width: 2.94451%;" onclick="setTime(55);">1</div>
+					<div style="left: 83.9186%; width: 2.94451%;" onclick="setTime(57);">2</div>
+					<div style="left: 86.8631%; width: 5.88902%;" onclick="setTime(59);">Прогнозы</div>
+					<div style="left: 92.7521%; width: 2.94451%;" onclick="setTime(63);">1</div>
+					<div style="left: 95.6966%; width: 2.94451%;" onclick="setTime(65);">2</div>
+				</div></div>
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/video_player.css' %}">
-  <title>Video</title>
-  <style>
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  </style>
-</head>
+				<div class="buttons">
+					<div class="row">
+						<a class="butt" onclick="send_status(this)">Хранитель</a>
+						<a class="butt" onclick="send_status(this)">Технолог</a>
+						<a class="butt" onclick="send_status(this)">Искатель</a>
+						<a class="butt" onclick="send_status(this)">Генератор идей</a>
+					</div>
 
-<body>
-  <div class="container">
-    <div class="video" data-links="[[&quot;⠀&quot;, 0, 3], [&quot;Воля&quot;, 3, 4], [&quot;1&quot;, 7, 2], [&quot;2&quot;, 9, 2], [&quot;Варианты&quot;, 11, 4],[&quot;1&quot;, 15, 2],[&quot;2&quot;, 17, 2],[&quot;Логика&quot;, 19, 4],[&quot;1&quot;, 23, 2],[&quot;2&quot;, 25, 2], [&quot;Рац&quot;, 27, 4], [&quot;1&quot;, 31, 2],[&quot;2&quot;, 33, 2],[&quot;Отношения&quot;, 35, 4],[&quot;1&quot;, 39, 2],[&quot;2&quot;, 41, 2], [&quot;Эмоции&quot;, 43, 4],[&quot;1&quot;, 47, 2],[&quot;2&quot;, 49, 2],[&quot;Комфорт&quot;, 51, 4],[&quot;1&quot;, 55, 2],[&quot;2&quot;, 57, 2],[&quot;Прогнозы&quot;, 59, 4],[&quot;1&quot;, 63, 2],[&quot;2&quot;, 65, 2]]">
-      <video src="/videos/{{video.file_name}}" preload="metadata" controls loadedmetadata="alert(1);"></video>
-    </div>
-    <div class="buttons">
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Хранитель</a>
-        <a class="butt" onclick="send_status(this)">Технолог</a>
-        <a class="butt" onclick="send_status(this)">Искатель</a>
-        <a class="butt" onclick="send_status(this)">Генератор идей</a>
-      </div>
+					<div class="row">
+						<a class="butt" onclick="send_status(this)">Дипломат</a>
+						<a class="butt" onclick="send_status(this)">Предводитель</a>
+						<a class="butt" onclick="send_status(this)">Сценарист</a>
+						<a class="butt" onclick="send_status(this)">Тактик</a>
+					</div>
 
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Дипломат</a>
-        <a class="butt" onclick="send_status(this)">Предводитель</a>
-        <a class="butt" onclick="send_status(this)">Сценарист</a>
-        <a class="butt" onclick="send_status(this)">Тактик</a>
-      </div>
+					<div class="row">
+						<a class="butt" onclick="send_status(this)">Администратор</a>
+						<a class="butt" onclick="send_status(this)">Аналитик</a>
+						<a class="butt" onclick="send_status(this)">Позитивист</a>
+						<a class="butt" onclick="send_status(this)">Драматург</a>
+					</div>
+					<div class="row">
+						<a class="butt" onclick="send_status(this)">Практик</a>
+						<a class="butt" onclick="send_status(this)">Деятель</a>
+						<a class="butt" onclick="send_status(this)">Моралист</a>
+						<a class="butt" onclick="send_status(this)">Миротворец</a>
+					</div>
+					<div class="row">
+						Текущий статус:  <span id="status">Тактик</span>
+					</div>
+				</div>
+				<div class="row foter">
+					{% if video.ident == 1 %}
+					<a class="butt left"><< Назад</a>
+					{% else %}
+					<a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
+					{% endif %}
+					<a href="http://vk.com/{{ video.username }}" target="_blank">{{video.full_name}}</a>
+					{% if video.ident == max_videos %}
+					<a class="butt right" href='1'>Далее >></a>
+					{% else %}
+					<a class="butt right" href={{video.ident|add:1}}>Далее >></a>
+					{% endif %}
 
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Администратор</a>
-        <a class="butt" onclick="send_status(this)">Аналитик</a>
-        <a class="butt" onclick="send_status(this)">Позитивист</a>
-        <a class="butt" onclick="send_status(this)">Драматург</a>
-      </div>
-      <div class="row">
-        <a class="butt" onclick="send_status(this)">Практик</a>
-        <a class="butt" onclick="send_status(this)">Деятель</a>
-        <a class="butt" onclick="send_status(this)">Моралист</a>
-        <a class="butt" onclick="send_status(this)">Миротворец</a>
-      </div>
-      <div class="row">
-        Текущий статус: <span id="status">Тактик</span>
-      </div>
-    </div>
-    <div class="row foter">
-      {% if video.ident == 1 %}
-      <a class="butt left"><< Назад</a>
-      {% else %}
-      <a class="butt left" href="{{video.ident|add:-1}}"><< Назад</a>
-      {% endif %}
-      <a href="http://vk.com/{{ video.username }}" target="_blank">{{video.full_name}}</a>
-      {% if video.ident == max_videos %}
-      <a class="butt right" href='1'>Далее >></a>
-      {% else %}
-      <a class="butt right" href="{{video.ident|add:1}}">Далее >></a>
-      {% endif %}
-    </div>
-  </div>
-  <script>
-    let ID = "{{video.ident}}"
-  </script>
-  <script>
-    let user = "{{ user.get_username }}"
-  </script>
-  <script src="{%static 'js/video_player.js'%}"></script>
-</body>
+				</div>
+		</div>
 
-</html>
+		<script>
+let ID = "{{video.ident}}"
+		</script>
+		<script>
+let user = "{{ user.get_username }}"
+		</script>
+
+		<script>
+
+function setTime(time) {
+	console.log('Changed time')
+		var video = document.getElementById('_video');
+	video.play();
+	video.pause();
+	console.log(time)
+		video.currentTime = time
+		video.play();
+}
+
+function video_onclick(e) {
+	let video = e;
+	if (video.paused) {
+		video.play();
+	} else {
+		video.pause();
+	}
+}
+
+
+var video = document.getElementById('_video'),pausedtime = 0;
+video.addEventListener('timeupdate', function () {
+	let progress = this.currentTime / this.duration;
+	console.log(progress)
+		let progress_el = document.getElementById('progress')
+		progress_el.style.width = (progress * 100) + "%";
+	if (progress >= 1) {
+		video.pause();
+	}
+});
+
+
+async function send_status(text) {
+	URL = String(ID) + '/set_status'
+		console.log(text.text)
+		console.log(ID)
+		console.log(user)
+		let fd = new FormData();
+	fd.append('status', text.text);
+	fd.append('ident', ID);
+	let promise = await fetch(URL, {
+		method: 'post',
+		body: fd
+	});
+	if (promise.ok) {
+		console.log('zbs')
+			document.getElementById('status').innerHTML = text.text
+	}
+}
+		</script>
+
+
+	</body></html>
