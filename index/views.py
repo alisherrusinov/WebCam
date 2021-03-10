@@ -60,6 +60,8 @@ def custom_admin(request):
             all_videos = VideoModel.objects.all()
             max_video = len(all_videos)
             return render(request, 'index/custom_admin.html', {'videos': all_videos, 'max_videos': max_video})
+        else:
+            return HttpResponse(404)
     else:
         return HttpResponse(404)
 
