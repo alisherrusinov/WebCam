@@ -141,3 +141,5 @@ SOCIAL_AUTH_VK_OAUTH2_KEY = '7786276'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'LxdNHOEsHLfodruXEbTv'
 LOGIN_REDIRECT_URL = 'record'
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['username']
+
+ADMINS_LIST = ['bu1ator', 'ilnaritto', 'arusinov85']

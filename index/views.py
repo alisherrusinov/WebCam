@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 import webcam.settings as settings
 from .models import VideoModel
 import os
+import glob
 # Create your views here.
 
 def index(request):
@@ -26,7 +27,7 @@ def get_video(request):
     """
     if (request.method == 'POST'):
         directory = settings.VIDE0_DIR
-        id = len(os.listdir(directory)) + 1
+        id = len(glob(f"{directory}/*.mp4")) +1
         filename = f'temp{id}.webm'
         videos_path = os.path.join(directory, filename)
         print(request.FILES)

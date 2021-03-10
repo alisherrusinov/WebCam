@@ -87,12 +87,12 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             }, 27000)
             
             setTimeout(function(){
-                change_label('Красный? Он же белый ')
+                change_label('Красный? Он же белый 🔴 ')
                 start_timer(2)
             }, 31000)
 
             setTimeout(function(){
-                change_label('Ты не путаешь цвета?')
+                change_label('Ты не путаешь цвета? 🔴')
                 start_timer(2)
             }, 33000)
 
